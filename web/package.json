@@ -12,6 +12,11 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@tabler/icons-react": "^3.35.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "mapbox-gl": "^3.16.0",
     "next": "16.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0"
@@ -29,6 +34,8 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.3.0",
     "prettier": "^3.6.2",
+    "sharp": "^0.34.5",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
