@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'motion/react';
 import Link from 'next/link';
 
 import Container from '@/components/layout/Container';
@@ -9,10 +12,19 @@ export default function Home() {
   return (
     <Main>
       <section className="nav-clearance flex flex-col items-center space-y-16">
-        <h1 className="text-primary-teal-600 tracking-tighter text-7xl md:text-8xl lg:text-9xl text-center font-black uppercase max-w-6xl mx-auto leading-[0.8] mt-24">
+        <motion.h1
+          className="text-primary-teal-600 tracking-tighter text-7xl md:text-8xl lg:text-9xl text-center font-black uppercase max-w-6xl mx-auto leading-[0.8] mt-24"
+          initial={{ scale: 0.8, y: 50 }}
+          animate={{ scale: 1, y: 0 }}
+        >
           Pediatric care that comes with a smile
-        </h1>
-        <div className="flex items-center justify-center gap-4">
+        </motion.h1>
+        <motion.div
+          className="flex items-center justify-center gap-4"
+          initial={{ opacity: 0 }}
+          transition={{ delay: 0.25 }}
+          animate={{ opacity: 1 }}
+        >
           <Link
             href="/contact"
             className={cn(buttonVariants({ variant: 'default' }))}
@@ -25,7 +37,7 @@ export default function Home() {
           >
             Meet Our Doctors
           </Link>
-        </div>
+        </motion.div>
       </section>
       <section className="mt-24 px-2 md:px-4">
         <div className="bg-primary-purple-200 rounded-5xl lg:rounded-6xl p-6 md:p-10 lg:p-12 xl:p-24">
@@ -38,23 +50,63 @@ export default function Home() {
             {/* Our clinic is all about providing you with easy access and
               a comfortable environment for your child to be treated in. */}
             <div className="flex flex-col md:flex-row items-center justify-center py-16">
-              <div className="flex items-center justify-center p-2 lg:p-4 rounded-3xl bg-background size-52 lg:size-60 shadow-lg -rotate-6">
+              <motion.div
+                className="flex items-center justify-center p-2 lg:p-4 rounded-3xl bg-background size-52 lg:size-60 shadow-lg -rotate-6"
+                animate={{
+                  y: [0, -4, 0]
+                }}
+                transition={{
+                  y: {
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: 'easeInOut'
+                  }
+                }}
+              >
                 <h4 className="h3 font-black text-center text-primary-teal-600">
                   Easy Access
                 </h4>
-              </div>
-              <div className="flex items-center justify-center p-2 lg:p-4 rounded-3xl bg-background size-80 lg:size-96 shadow-lg rotate-6">
+              </motion.div>
+              <motion.div
+                className="flex items-center justify-center p-2 lg:p-4 rounded-3xl bg-background size-80 lg:size-96 shadow-lg rotate-6"
+                animate={{
+                  y: [0, -14, 0]
+                }}
+                transition={{
+                  delay: 0.25,
+                  y: {
+                    duration: 8.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 0.5
+                  }
+                }}
+              >
                 <h3 className="h2 font-black text-center text-primary">
                   Walk-ins only,
                   <br />
                   no appointment needed
                 </h3>
-              </div>
-              <div className="flex items-center justify-center p-2 lg:p-4 rounded-3xl bg-background size-56 lg:size-64 shadow-lg -rotate-12">
+              </motion.div>
+              <motion.div
+                className="flex items-center justify-center p-2 lg:p-4 rounded-3xl bg-background size-56 lg:size-64 shadow-lg -rotate-12"
+                animate={{
+                  y: [0, -7.5, 0]
+                }}
+                transition={{
+                  delay: 0.5,
+                  y: {
+                    duration: 5.2,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 1
+                  }
+                }}
+              >
                 <h4 className="h3 font-black text-center text-sky-500">
                   Comfortable Environment
                 </h4>
-              </div>
+              </motion.div>
             </div>
           </Container>
         </div>
