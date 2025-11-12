@@ -27,7 +27,7 @@ export default function MainNav({ listClassName, ...restProps }: Props) {
       NAV_ITEMS.map((item) => {
         return {
           ...item,
-          isActive: pathname.startsWith(item.href)
+          isActive: item.href !== '/' && pathname.startsWith(item.href)
         };
       }),
     [pathname]

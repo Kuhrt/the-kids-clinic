@@ -12,6 +12,7 @@ const buttonVariants = cva(
         secondary: 'bg-secondary',
         sky: 'bg-sky-500',
         coral: 'bg-coral-500',
+        sage: 'bg-sage-500',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline:

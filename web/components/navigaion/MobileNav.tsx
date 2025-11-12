@@ -9,14 +9,19 @@ import {
   PopoverButton,
   PopoverPanel
 } from '@headlessui/react';
-import { IconChevronDown, IconMenu, IconX } from '@tabler/icons-react';
+import {
+  IconChevronDown,
+  IconMenu,
+  IconPhone,
+  IconX
+} from '@tabler/icons-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ComponentPropsWithoutRef, useMemo } from 'react';
 
 import { NAV_ITEMS } from '@/constants/navigation';
 
-import { Button } from '../ui/button';
+import { Button, buttonVariants } from '../ui/button';
 
 export default function MobileNav(
   props: ComponentPropsWithoutRef<typeof Popover>
@@ -27,16 +32,25 @@ export default function MobileNav(
       NAV_ITEMS.map((item) => {
         return {
           ...item,
-          isActive: pathname.startsWith(item.href)
+          isActive: pathname !== '/' && pathname.startsWith(item.href)
         };
       }),
     [pathname]
   );
   return (
     <Popover {...props}>
-      <PopoverButton as={Button} size="icon">
-        <IconMenu className="size-4" />
-      </PopoverButton>
+      <div className="flex items-center justify-end gap-4">
+        <a
+          href="tel:8067715437"
+          className={buttonVariants({ variant: 'secondary', size: 'icon' })}
+          title="Call us"
+        >
+          <IconPhone className="size-4" />
+        </a>
+        <PopoverButton as={Button} size="icon">
+          <IconMenu className="size-4" />
+        </PopoverButton>
+      </div>
       <PopoverBackdrop
         transition
         className="fixed inset-0 z-50 bg-neutral-900/40 backdrop-blur-xs duration-150 data-closed:opacity-0 data-enter:ease-out data-leave:ease-in"

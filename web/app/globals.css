@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #e9ecef;
@@ -137,6 +138,9 @@
   --font-sans: var(--font-inter);
   --font-display: var(--font-poppins);
 
+  --radius-5xl: 3rem;
+  --radius-6xl: 4rem;
+
   --shadow-lg: -5px 6px 0px 0px var(--color-primary-purple-700);
   --shadow-md: -3px 3px 0px 0px var(--color-primary-purple-700);
   --shadow-sm: -2px 2px 0px 0px var(--color-primary-purple-700);
@@ -167,22 +171,30 @@
 
   h1,
   .h1 {
-    @apply text-5xl font-semibold text-secondary;
+    @apply text-5xl font-black text-primary-purple-600;
   }
 
   h2,
   .h2 {
-    @apply text-4xl font-semibold text-primary-purple-600;
+    @apply text-4xl font-black text-secondary;
   }
 
   h3,
   .h3 {
-    @apply text-3xl font-semibold text-neutral-800;
+    @apply text-3xl font-black text-neutral-800;
   }
 }
 
 @layer utilities {
   .nav-clearance {
     @apply pt-[74px] md:pt-[78px];
+  }
+
+  .footer-clearance {
+    @apply pb-24 md:pb-40;
+  }
+
+  .tkc-prose {
+    @apply prose lg:prose-xl prose-neutral prose-headings:font-black prose-headings:text-primary-purple-700;
   }
 }

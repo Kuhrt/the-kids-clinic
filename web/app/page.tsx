@@ -20,7 +20,7 @@ export default function Home() {
             Get Care Now
           </Link>
           <Link
-            href="/about"
+            href="/about#staff"
             className={cn(buttonVariants({ variant: 'secondary' }))}
           >
             Meet Our Doctors
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
       </section>
       <section className="mt-24 px-2 md:px-4">
-        <div className="bg-primary-purple-200 rounded-[3rem] lg:rounded-[4rem] p-6 md:p-10 lg:p-12 xl:p-24">
+        <div className="bg-primary-purple-200 rounded-5xl lg:rounded-6xl p-6 md:p-10 lg:p-12 xl:p-24">
           <Container>
             <h2 className="text-primary-purple-600 font-black lg:text-5xl">
               The emergency room doesn&apos;t have to be the only choice for
