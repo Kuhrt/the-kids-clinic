@@ -64,10 +64,13 @@ export default function AboutPage() {
                 <strong>Shayla Perry</strong>, LVN
               </li>
               <li>
-                <strong>Tanya Russell</strong>, NP
+                <strong>Christina Pauda</strong>, NP
               </li>
               <li>
-                <strong>Amanda</strong> - Supervisor
+                <strong>Amanda</strong> - Receptionist
+              </li>
+              <li>
+                <strong>Melissa</strong> - Receptionist
               </li>
               <li>
                 <strong>Rocsi</strong> - Receptionist

@@ -46,7 +46,7 @@ export default function Header({
     >
       <Link href="/">
         <Image
-          className="block h-16 md:h-20 w-auto absolute top-1/2 left-4 -translate-y-1/2"
+          className="block h-16 md:h-32 w-auto absolute top-0 left-4 "
           src="/images/logos/tkc-logo.png"
           alt="The Kids Clinic"
           width={320}
@@ -57,7 +57,7 @@ export default function Header({
       <MobileNav className="md:hidden" />
       <a
         href="tel:8067715437"
-        className="group hidden md:flex absolute top-7 right-4 text-sm font-display font-bold items-center justify-end gap-1"
+        className="group hidden md:flex absolute top-7 right-4 text-base font-display font-bold items-center justify-end gap-1"
       >
         <IconPhoneFilled className="text-primary size-5" />
         <span className="text-foreground/50 transition-colors group-hover:text-primary">

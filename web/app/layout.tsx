@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   description:
     'No appointment necessary, after hours care, open 6 days a week, a welcoming, comfortable environment. Pediatric care. Call 806-771-5437.',
   keywords:
-    "Pediatrician near me, Children's doctor, Pediatric clinic, Pediatric care, Lubbock pediatricians, Baby doctor, Infant doctor",
+    "Pediatrician near me, Children's doctor, Pediatric clinic, after-hours care, urgent care, walk-in, Pediatric care, Lubbock pediatricians, Baby doctor, Infant doctor",
   robots: 'index, follow',
   authors: [{ name: 'Kuhrt Cowan', url: 'https://kuhrt.codes' }],
   openGraph: {
@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <Head>
         <link
           rel="apple-touch-icon"

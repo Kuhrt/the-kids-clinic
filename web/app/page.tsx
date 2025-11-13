@@ -13,11 +13,13 @@ export default function Home() {
     <Main>
       <section className="nav-clearance flex flex-col items-center space-y-16">
         <motion.h1
-          className="text-primary-teal-600 tracking-tighter text-7xl md:text-8xl lg:text-9xl text-center font-black uppercase max-w-6xl mx-auto leading-[0.8] mt-24"
+          className="text-primary-teal-600 tracking-tighter text-6xl md:text-8xl lg:text-8xl text-center font-black uppercase max-w-6xl mx-auto leading-[0.8] mt-24"
           initial={{ scale: 0.8, y: 50 }}
           animate={{ scale: 1, y: 0 }}
         >
-          Pediatric care that comes with a smile
+          Pediatric
+          <br />
+          after-hours care that comes with a smile
         </motion.h1>
         <motion.div
           className="flex items-center justify-center gap-4"
