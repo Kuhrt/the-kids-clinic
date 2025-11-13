@@ -1,5 +1,22 @@
+import { Metadata } from 'next';
+
 import ContentContainer from '@/components/layout/ContentContainer';
 import Main from '@/components/layout/Main';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  // description: '',
+  // keywords: '',
+  openGraph: {
+    title: 'Contact Us',
+    // description: '',
+    url: 'https://thekids.clinic/about'
+  },
+  twitter: {
+    title: 'Contact Us'
+    // description: ''
+  }
+};
 
 export default function AboutPage() {
   return (

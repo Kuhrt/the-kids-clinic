@@ -1,7 +1,24 @@
+import { Metadata } from 'next';
+
 import ContentContainer from '@/components/layout/ContentContainer';
 import Main from '@/components/layout/Main';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/utils/styles';
+
+export const metadata: Metadata = {
+  title: 'Services',
+  // description: '',
+  // keywords: '',
+  openGraph: {
+    title: 'Services',
+    // description: '',
+    url: 'https://thekids.clinic/services'
+  },
+  twitter: {
+    title: 'Services'
+    // description: ''
+  }
+};
 
 export default function ServicesPage() {
   return (

@@ -1,5 +1,6 @@
 'use client';
 
+import { IconPhoneFilled } from '@tabler/icons-react';
 import { useMotionValueEvent, useScroll } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -54,6 +55,15 @@ export default function Header({
       </Link>
       <MainNav className="hidden md:block" />
       <MobileNav className="md:hidden" />
+      <a
+        href="tel:8067715437"
+        className="group hidden md:flex absolute top-7 right-4 text-sm font-display font-bold items-center justify-end gap-1"
+      >
+        <IconPhoneFilled className="text-primary size-5" />
+        <span className="text-foreground/50 transition-colors group-hover:text-primary">
+          806.771.5437
+        </span>
+      </a>
       {children}
     </header>
   );

@@ -3,10 +3,29 @@ import {
   IconMapPinFilled,
   IconPhoneFilled
 } from '@tabler/icons-react';
+import { Metadata } from 'next';
 
 import Container from '@/components/layout/Container';
 import Main from '@/components/layout/Main';
 import LocationMap from '@/components/maps/LocationMap';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description:
+    'Call The Kids Clinic at 806-771-5437 or stop by 5215 96th St. Open 6 days a week, walk-ins welcome. Pediatric care.',
+  // keywords: '',
+  openGraph: {
+    title: 'Contact Us',
+    description:
+      'Call The Kids Clinic at 806-771-5437 or stop by 5215 96th St. Open 6 days a week, walk-ins welcome. Pediatric care.',
+    url: 'https://thekids.clinic/contact'
+  },
+  twitter: {
+    title: 'Contact Us',
+    description:
+      'Call The Kids Clinic at 806-771-5437 or stop by 5215 96th St. Open 6 days a week, walk-ins welcome. Pediatric care.'
+  }
+};
 
 export default function ContactPage() {
   return (
