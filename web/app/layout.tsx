@@ -21,6 +21,11 @@ const poppinsFont = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === 'production'
+      ? 'https://thekids.clinic'
+      : 'http://localhost:3000'
+  ),
   title: {
     template: '%s | The Kids Clinic',
     default: 'The Kids Clinic'
