@@ -46,14 +46,16 @@ export default function MobileNav(
           title="Call us"
         >
           <IconPhone className="size-4" />
+          <span className="sr-only">Call us: 806-771-5437</span>
         </a>
         <PopoverButton as={Button} size="icon">
           <IconMenu className="size-4" />
+          <span className="sr-only">Open menu</span>
         </PopoverButton>
       </div>
       <PopoverBackdrop
         transition
-        className="fixed inset-0 z-50 bg-neutral-900/40 backdrop-blur-xs duration-150 data-closed:opacity-0 data-enter:ease-out data-leave:ease-in"
+        className="fixed inset-0 h-screen z-50 bg-neutral-900/40 backdrop-blur-xs duration-150 data-closed:opacity-0 data-enter:ease-out data-leave:ease-in"
       />
       <PopoverPanel
         focus
@@ -63,6 +65,7 @@ export default function MobileNav(
         <div className="absolute top-4 right-4 flex flex-row-reverse items-center justify-between">
           <PopoverButton aria-label="Close menu" className="-m-1 p-1">
             <IconX className="h-6 w-6 text-primary-purple-700" />
+            <span className="sr-only">Close menu</span>
           </PopoverButton>
         </div>
         <nav aria-label="Mobile navigation">

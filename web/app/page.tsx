@@ -65,9 +65,9 @@ export default function Home() {
                   }
                 }}
               >
-                <h4 className="h3 font-black text-center text-primary-teal-600">
+                <h3 className="font-black text-center text-primary-teal-600">
                   Easy Access
-                </h4>
+                </h3>
               </motion.div>
               <motion.div
                 className="flex items-center justify-center p-2 lg:p-4 rounded-3xl bg-background size-80 lg:size-96 shadow-lg rotate-6"
@@ -105,9 +105,9 @@ export default function Home() {
                   }
                 }}
               >
-                <h4 className="h3 font-black text-center text-sky-500">
+                <h3 className="font-black text-center text-sky-500">
                   Comfortable Environment
-                </h4>
+                </h3>
               </motion.div>
             </div>
           </Container>

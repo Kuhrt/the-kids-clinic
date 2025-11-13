@@ -70,5 +70,10 @@ export default function LocationMap({
     };
   }, [center, zoom]);
 
-  return <div ref={mapContainer} className={cn('w-full h-full', className)} />;
+  return (
+    <div
+      ref={mapContainer}
+      className={cn('w-full h-full bg-primary', className)}
+    />
+  );
 }

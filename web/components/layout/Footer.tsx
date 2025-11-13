@@ -96,6 +96,7 @@ export default function Footer({
               )}
             >
               <IconBrandFacebookFilled className="size-4 md:size-5 transition-all" />
+              <span className="sr-only">Facebook</span>
             </Link>
           </div>
           <p className="absolute bottom-5 lg:bottom-8 left-1/2 transform -translate-x-1/2 text-center text-sm font-semibold text-primary-purple-100">
