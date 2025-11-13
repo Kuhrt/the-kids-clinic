@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
     description:
       'No appointment necessary, after hours care, open 6 days a week, a welcoming, comfortable environment. Pediatric care. Call 806-771-5437.',
-    url: 'https://thekidsclinic.com',
+    url: 'https://thekids.clinic',
     siteName: 'The Kids Clinic',
     locale: 'en_US'
   },
