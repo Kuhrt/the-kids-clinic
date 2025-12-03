@@ -1,3 +1,12 @@
+# Local development tools
 .tools/*
 !.tools/docker-compose.yml
 !.tools/init-scripts
+
+# Production environment (secrets)
+.env
+certbot/
+backups/
+
+# Keep example files
+!.env.example
