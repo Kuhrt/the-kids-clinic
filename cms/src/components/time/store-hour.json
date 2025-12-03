@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_time_store_hours",
+  "info": {
+    "displayName": "Store Hour",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Monday",
+      "enum": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ]
+    },
+    "openTime": {
+      "type": "time"
+    },
+    "closeTime": {
+      "type": "time"
+    }
+  },
+  "config": {}
+}

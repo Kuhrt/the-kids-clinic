@@ -18,6 +18,16 @@
       "sourceMapPathOverrides": {
         "webpack:///./*": "${workspaceRoot}/web/*"
       }
+    },
+    {
+      "name": "Debug CMS",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "develop"],
+      "sourceMaps": true,
+      "runtimeExecutable": "npm",
+      "cwd": "${workspaceFolder}/cms",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
     }
   ],
   "compounds": [

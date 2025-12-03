@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata, Viewport } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import Head from 'next/head';
@@ -7,6 +8,7 @@ import Head from 'next/head';
 import SkipToMain from '@/components/accessibility/SkipToMain';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import { getContactInfo } from '@/repositories/page-repository';
 
 const interFont = Inter({
   weight: ['400', '500', '600'],
@@ -65,13 +67,19 @@ export const viewport: Viewport = {
   themeColor: '#832a91'
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const contactInfo = await getContactInfo();
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <GoogleAnalytics
+        gaId={process.env.NEXT_PUBLIC_GA_ID ?? ''}
+        dataLayerName="config"
+      />
       <Head>
         <link
           rel="apple-touch-icon"
@@ -97,10 +105,10 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <SkipToMain />
-        <Header />
+        <Header contactInfo={contactInfo ?? undefined} />
         <div className="min-h-screen flex flex-col">
           {children}
-          <Footer />
+          <Footer contactInfo={contactInfo ?? undefined} />
         </div>
       </body>
     </html>

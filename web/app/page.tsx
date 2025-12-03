@@ -2,15 +2,49 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import Script from 'next/script';
+import type { ProfessionalService, WithContext } from 'schema-dts';
 
 import Container from '@/components/layout/Container';
 import Main from '@/components/layout/Main';
-import { buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/buttons/button';
 import { cn } from '@/utils/styles';
+
+const jsonLd: WithContext<ProfessionalService> = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: "The Kid's Clinic",
+  url: 'https://thekids.clinic/',
+  logo: 'https://le-cdn.hibuwebsites.com/d1213bbe603740d6813e73cd598f27ee/dms3rep/multi/opt/Satellite_1963577326-564w.png',
+  description:
+    'When your little one is feeling under the weather, let our experienced pediatric team help. Our comfortable, calm atmosphere will help put them at ease as our pediatric team of professionals help them get back to feeling better.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '5215 96th St',
+    addressLocality: 'Lubbock',
+    addressRegion: 'TX',
+    postalCode: '79424',
+    addressCountry: 'United States'
+  },
+  hasMap:
+    "https://www.google.com/maps/place/The+Kid's+Clinic/@33.5065325,-101.9242446,914m/data=!3m2!1e3!4b1!4m6!3m5!1s0x86fe731ecb3ff11d:0x4dcf88e4741cc27e!8m2!3d33.5065325!4d-101.9242446!16s%2Fg%2F119wllt84!5m1!1e2?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D",
+  openingHours:
+    'Mo 17:30-20:00 Tu 17:30-20:00 We 17:30-20:00 Th 17:30-20:00 Sa 09:00-15:00 Su 10:00-15:00',
+  telephone: '(806) 771-5437'
+};
 
 export default function Home() {
   return (
     <Main>
+      <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+        }}
+        key="ld+json"
+        id="ld+json"
+        strategy="beforeInteractive"
+      />
       <section className="nav-clearance flex flex-col items-center space-y-16">
         <motion.h1
           className="text-primary-teal-600 tracking-tighter text-6xl md:text-7xl lg:text-[7rem] text-center font-black uppercase max-w-6xl mx-auto leading-[0.8] mt-24"
@@ -113,7 +147,7 @@ export default function Home() {
           </Container>
         </div>
       </section>
-      <section className="bg-sky-200 min-h-[60vh] relative mt-[calc(20vw)] md:mt-[calc(25vw)]">
+      <section className="bg-sky-200 min-h-[20vh] relative mt-[calc(20vw)] md:mt-[calc(25vw)]">
         {/* Owl head SVG sitting on top of the section */}
         <div className="absolute bottom-[calc(100%-1px)] left-0 right-0 w-full">
           <svg

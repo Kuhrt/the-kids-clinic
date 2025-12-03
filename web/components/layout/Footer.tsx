@@ -2,15 +2,26 @@ import { IconBrandFacebookFilled } from '@tabler/icons-react';
 import Link from 'next/link';
 import { ComponentPropsWithRef } from 'react';
 
+import { ContactInfo } from '@/models/contact/ContactInfo';
+import { getCurrentYear } from '@/utils/dates';
+import { cleanPhoneNumber } from '@/utils/strings';
 import { cn } from '@/utils/styles';
 
-import { buttonVariants } from '../ui/button';
+import HoursList from '../time/HoursList';
+import { buttonVariants } from '../ui/buttons/button';
 import Container from './Container';
 
-export default function Footer({
+interface Props extends ComponentPropsWithRef<'footer'> {
+  contactInfo?: ContactInfo;
+}
+
+export default async function Footer({
   className,
+  contactInfo,
   ...restProps
-}: ComponentPropsWithRef<'footer'>) {
+}: Props) {
+  const currentYear = await getCurrentYear();
+
   return (
     <footer className={cn('relative', className)} {...restProps}>
       <svg
@@ -32,57 +43,35 @@ export default function Footer({
               The Kid&apos;s Clinic
             </h3>
             <address className="not-italic font-semibold">
-              5215 96th St.
-              <br />
-              Lubbock, TX 79424
-              <br />
-              <a
-                href="tel:8067715437"
-                className="transition-colors hover:cursor-pointer hover:text-primary-purple-50 block mt-3"
-              >
-                806.771.5437
-              </a>
+              {!!contactInfo?.address && (
+                <span
+                  dangerouslySetInnerHTML={{ __html: contactInfo.address }}
+                  className="whitespace-pre-wrap"
+                ></span>
+              )}
+              {!!contactInfo?.phone && (
+                <>
+                  <br />
+                  <a
+                    href={`tel:${cleanPhoneNumber(contactInfo.phone)}`}
+                    className="transition-colors hover:cursor-pointer hover:text-primary-purple-50 block mt-3"
+                  >
+                    {contactInfo.phone}
+                  </a>
+                </>
+              )}
             </address>
           </div>
           <div></div>
           <div>
-            <h3 className="font-bold text-xl lg:text-2xl text-background mb-2">
-              Hours
-            </h3>
-            <dl className="font-semibold text-xs grid grid-cols-2 gap-2">
-              <dt>Monday</dt>
-              <dd>
-                <time dateTime="17:30-06:00">5:30 PM</time> -{' '}
-                <time dateTime="20:00-06:00">8:00 PM</time>
-              </dd>
-              <dt>Tuesday</dt>
-              <dd>
-                <time dateTime="17:30-06:00">5:30 PM</time> -{' '}
-                <time dateTime="20:00-06:00">8:00 PM</time>
-              </dd>
-              <dt>Wednesday</dt>
-              <dd>
-                <time dateTime="17:30-06:00">5:30 PM</time> -{' '}
-                <time dateTime="20:00-06:00">8:00 PM</time>
-              </dd>
-              <dt>Thursday</dt>
-              <dd>
-                <time dateTime="17:30-06:00">5:30 PM</time> -{' '}
-                <time dateTime="20:00-06:00">8:00 PM</time>
-              </dd>
-              <dt>Friday</dt>
-              <dd>CLOSED</dd>
-              <dt>Saturday</dt>
-              <dd>
-                <time dateTime="09:00-06:00">9:00 AM</time> -{' '}
-                <time dateTime="15:00-06:00">3:00 PM</time>
-              </dd>
-              <dt>Sunday</dt>
-              <dd>
-                <time dateTime="10:00-06:00">10:00 AM</time> -{' '}
-                <time dateTime="15:00-06:00">3:00 PM</time>
-              </dd>
-            </dl>
+            {!!contactInfo?.hours && (
+              <>
+                <h3 className="font-bold text-xl lg:text-2xl text-background mb-2">
+                  Hours
+                </h3>
+                <HoursList hours={contactInfo.hours} className="text-xs" />
+              </>
+            )}
           </div>
         </Container>
         <div className="flex items-center justify-between gap-4 py-2 px-4 md:py-4 md:px-6">
@@ -100,7 +89,7 @@ export default function Footer({
             </Link>
           </div>
           <p className="absolute bottom-5 lg:bottom-8 left-1/2 transform -translate-x-1/2 text-center text-sm font-semibold text-primary-purple-100">
-            &copy; {new Date().getFullYear()} The Kids Clinic
+            &copy; {currentYear} The Kids Clinic
           </p>
           <div className="flex items-center justify-end gap-2">
             <Link
