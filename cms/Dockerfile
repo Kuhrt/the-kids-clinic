@@ -6,6 +6,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
+# Install all dependencies (including dev) since Strapi needs typescript at runtime
 RUN npm ci
 
 # Build the application
@@ -27,10 +28,11 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 strapi
 RUN adduser --system --uid 1001 strapi
 
-# Copy built application
+# Copy built application and all necessary files
 COPY --from=builder --chown=strapi:strapi /app/dist ./dist
 COPY --from=builder --chown=strapi:strapi /app/node_modules ./node_modules
 COPY --from=builder --chown=strapi:strapi /app/package.json ./package.json
+COPY --from=builder --chown=strapi:strapi /app/tsconfig.json ./tsconfig.json
 COPY --from=builder --chown=strapi:strapi /app/public ./public
 COPY --from=builder --chown=strapi:strapi /app/config ./config
 COPY --from=builder --chown=strapi:strapi /app/src ./src
