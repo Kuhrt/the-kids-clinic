@@ -19,8 +19,18 @@ COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Build-time environment variables (NEXT_PUBLIC_* vars must be present at build time)
+ARG NEXT_PUBLIC_CMS_API_URL
+ARG NEXT_PUBLIC_CMS_API_KEY
+ARG NEXT_PUBLIC_GA_ID
+ARG NEXT_PUBLIC_MAPBOX_KEY
+
+ENV NEXT_PUBLIC_CMS_API_URL=$NEXT_PUBLIC_CMS_API_URL
+ENV NEXT_PUBLIC_CMS_API_KEY=$NEXT_PUBLIC_CMS_API_KEY
+ENV NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID
+ENV NEXT_PUBLIC_MAPBOX_KEY=$NEXT_PUBLIC_MAPBOX_KEY
 
 RUN npm run build;
 
