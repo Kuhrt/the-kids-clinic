@@ -21,14 +21,11 @@ COPY . .
 # Learn more here: https://nextjs.org/telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Build-time environment variables (NEXT_PUBLIC_* vars must be present at build time)
-ARG NEXT_PUBLIC_CMS_API_URL
-ARG NEXT_PUBLIC_CMS_API_KEY
+# Only set non-CMS env vars at build time to avoid build-time fetching issues
+# CMS vars are intentionally omitted - they'll be available at runtime
 ARG NEXT_PUBLIC_GA_ID
 ARG NEXT_PUBLIC_MAPBOX_KEY
 
-ENV NEXT_PUBLIC_CMS_API_URL=$NEXT_PUBLIC_CMS_API_URL
-ENV NEXT_PUBLIC_CMS_API_KEY=$NEXT_PUBLIC_CMS_API_KEY
 ENV NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID
 ENV NEXT_PUBLIC_MAPBOX_KEY=$NEXT_PUBLIC_MAPBOX_KEY
 
