@@ -55,8 +55,8 @@ services:
       context: ./web
       dockerfile: Dockerfile
       args:
-        # Only non-CMS vars at build time - CMS vars are runtime only
-        # to avoid build-time fetch issues when CMS isn't reachable
+        - NEXT_PUBLIC_CMS_API_URL=${NEXT_PUBLIC_CMS_API_URL}
+        - NEXT_PUBLIC_CMS_API_KEY=${NEXT_PUBLIC_CMS_API_KEY}
         - NEXT_PUBLIC_GA_ID=${NEXT_PUBLIC_GA_ID}
         - NEXT_PUBLIC_MAPBOX_KEY=${NEXT_PUBLIC_MAPBOX_KEY}
     container_name: tkc-web
