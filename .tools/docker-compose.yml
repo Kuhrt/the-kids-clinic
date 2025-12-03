@@ -1,0 +1,21 @@
+name: tkc-tools
+services:
+  postgres:
+    image: postgres:16
+    container_name: tkc-postgres
+    restart: no
+    ports:
+      - 5432:5432
+    command: ['postgres']
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tkc
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - tkc-net
+
+networks:
+  tkc-net:
+    driver: bridge

@@ -21,7 +21,7 @@ import { ComponentPropsWithoutRef, useMemo } from 'react';
 
 import { NAV_ITEMS } from '@/constants/navigation';
 
-import { Button, buttonVariants } from '../ui/button';
+import { Button, buttonVariants } from '../ui/buttons/button';
 
 export default function MobileNav(
   props: ComponentPropsWithoutRef<typeof Popover>
