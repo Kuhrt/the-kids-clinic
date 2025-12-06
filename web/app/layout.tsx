@@ -6,6 +6,7 @@ import { Inter, Poppins } from 'next/font/google';
 import Head from 'next/head';
 
 import SkipToMain from '@/components/accessibility/SkipToMain';
+import TownsquareScripts from '@/components/analytics/TownsquareScripts';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import { getContactInfo } from '@/repositories/page-repository';
@@ -110,6 +111,7 @@ export default async function RootLayout({
           {children}
           <Footer contactInfo={contactInfo ?? undefined} />
         </div>
+        <TownsquareScripts />
       </body>
     </html>
   );

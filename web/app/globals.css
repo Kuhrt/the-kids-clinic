@@ -198,3 +198,45 @@
     @apply prose lg:prose-xl prose-neutral prose-headings:font-black prose-headings:text-primary-purple-700;
   }
 }
+
+#livesite_engage_button a.ls-engage-button {
+  @apply bg-secondary text-primary font-display font-black! rounded-tr-2xl! rounded-tl-2xl!;
+}
+
+#livesite_engage_button a.ls-engage-button:hover {
+  @apply bg-secondary/90;
+}
+
+.ls-font-family-T div,
+.ls-font-family-T span,
+.ls-font-family-T a,
+.ls-font-family-T em,
+.ls-font-family-T img {
+  @apply font-sans! text-foreground!;
+}
+
+.ls-inline-actions-T {
+  @apply bg-neutral-300!
+}
+
+#livesite_active_engage {
+  @apply rounded-t-2xl!;
+}
+
+#livesite_active_engage .ls-ae-C {
+  @apply rounded-t-2xl!;
+}
+
+#livesite_active_engage .ls-ae,
+#livesite_active_engage .ls-ae-C,
+#livesite_active_engage .ls-content {
+  @apply rounded-t-2xl!;
+}
+
+#livesite_active_engage .ls-title {
+  @apply font-display! font-black!;
+}
+
+#livesite_active_engage .ls-main-action {
+  @apply bg-primary! text-primary-foreground! font-display! font-bold!;
+}

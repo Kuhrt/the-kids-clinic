@@ -53,7 +53,7 @@ export default function Header({
     >
       <Link href="/">
         <Image
-          className="block h-16 md:h-32 w-auto absolute top-0 left-4 "
+          className="block h-16 md:h-24 w-auto absolute top-3 left-4 "
           src="/images/logos/tkc-logo.png"
           alt="The Kids Clinic"
           width={320}
