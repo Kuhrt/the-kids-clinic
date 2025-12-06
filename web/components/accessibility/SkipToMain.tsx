@@ -2,7 +2,7 @@
 
 import { cn } from '@/utils/styles';
 
-import { buttonVariants } from '../ui/button';
+import { buttonVariants } from '../ui/buttons/button';
 
 export default function SkipToMain() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

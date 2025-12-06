@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ComponentPropsWithoutRef, useState } from 'react';
 
+import { ContactInfo } from '@/models/contact/ContactInfo';
+import { cleanPhoneNumber } from '@/utils/strings';
 import { cn } from '@/utils/styles';
 
 import MainNav from '../navigaion/MainNav';
@@ -13,11 +15,16 @@ import MobileNav from '../navigaion/MobileNav';
 
 const HIDE_THRESHOLD = 50;
 
+interface HeaderProps extends ComponentPropsWithoutRef<'header'> {
+  contactInfo?: ContactInfo;
+}
+
 export default function Header({
   className,
   children,
+  contactInfo,
   ...restProps
-}: ComponentPropsWithoutRef<'header'>) {
+}: HeaderProps) {
   const { scrollY } = useScroll();
   const [isHidden, setIsHidden] = useState(false);
 
@@ -46,24 +53,27 @@ export default function Header({
     >
       <Link href="/">
         <Image
-          className="block h-16 md:h-32 w-auto absolute top-0 left-4 "
+          className="block h-16 md:h-24 w-auto absolute top-3 left-4 "
           src="/images/logos/tkc-logo.png"
           alt="The Kids Clinic"
           width={320}
           height={160}
+          loading="eager"
         />
       </Link>
       <MainNav className="hidden md:block" />
       <MobileNav className="md:hidden" />
-      <a
-        href="tel:8067715437"
-        className="group hidden md:flex absolute top-7 right-4 text-base font-display font-bold items-center justify-end gap-1"
-      >
-        <IconPhoneFilled className="text-primary size-5" />
-        <span className="text-foreground/50 transition-colors group-hover:text-primary">
-          806.771.5437
-        </span>
-      </a>
+      {!!contactInfo?.phone && (
+        <a
+          href={`tel:${cleanPhoneNumber(contactInfo.phone)}`}
+          className="group hidden md:flex absolute top-7 right-4 text-base font-display font-bold items-center justify-end gap-1"
+        >
+          <IconPhoneFilled className="text-primary size-5" />
+          <span className="text-foreground/50 transition-colors group-hover:text-primary">
+            {contactInfo.phone}
+          </span>
+        </a>
+      )}
       {children}
     </header>
   );

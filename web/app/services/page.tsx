@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 import ContentContainer from '@/components/layout/ContentContainer';
 import Main from '@/components/layout/Main';
-import { buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/buttons/button';
 import { cn } from '@/utils/styles';
 
 export const metadata: Metadata = {
